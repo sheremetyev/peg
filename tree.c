@@ -21,6 +21,11 @@
 #include <string.h>
 #include <assert.h>
 
+#ifdef WIN32
+#undef inline
+#define inline __inline
+#endif
+
 #include "tree.h"
 
 Node *actions= 0;

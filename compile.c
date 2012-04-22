@@ -21,6 +21,11 @@
 #include <string.h>
 #include <assert.h>
 
+#ifdef WIN32
+#undef inline
+#define inline __inline
+#endif
+
 #include "version.h"
 #include "tree.h"
 
@@ -49,7 +54,7 @@ static int cnext(unsigned char **ccp)
 	    {
 		case 'a':  c= '\a'; break;	/* bel */
 		case 'b':  c= '\b'; break;	/* bs */
-		case 'e':  c= '\e'; break;	/* esc */
+		case 'e':  c= '\033'; break;	/* esc */
 		case 'f':  c= '\f'; break;	/* ff */
 		case 'n':  c= '\n'; break;	/* nl */
 		case 'r':  c= '\r'; break;	/* cr */

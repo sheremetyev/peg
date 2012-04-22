@@ -330,8 +330,9 @@ YY_ACTION(void) yy_3_primary(char *yytext, int yyleng)
 }
 YY_ACTION(void) yy_2_primary(char *yytext, int yyleng)
 {
+  Node *name;
   yyprintf((stderr, "do yy_2_primary\n"));
-   Node *name= makeName(findRule(yytext));  name->name.variable= pop();  push(name); ;
+  name= makeName(findRule(yytext));  name->name.variable= pop();  push(name); ;
 }
 YY_ACTION(void) yy_1_primary(char *yytext, int yyleng)
 {
@@ -370,18 +371,21 @@ YY_ACTION(void) yy_1_prefix(char *yytext, int yyleng)
 }
 YY_ACTION(void) yy_1_sequence(char *yytext, int yyleng)
 {
+  Node *f;
   yyprintf((stderr, "do yy_1_sequence\n"));
-   Node *f= pop();  push(Sequence_append(pop(), f)); ;
+  f= pop();  push(Sequence_append(pop(), f)); ;
 }
 YY_ACTION(void) yy_1_expression(char *yytext, int yyleng)
 {
+  Node *f;
   yyprintf((stderr, "do yy_1_expression\n"));
-   Node *f= pop();  push(Alternate_append(pop(), f)); ;
+  f= pop();  push(Alternate_append(pop(), f)); ;
 }
 YY_ACTION(void) yy_2_definition(char *yytext, int yyleng)
 {
+  Node *e;
   yyprintf((stderr, "do yy_2_definition\n"));
-   Node *e= pop();  Rule_setExpression(pop(), e); ;
+  e= pop();  Rule_setExpression(pop(), e); ;
 }
 YY_ACTION(void) yy_1_definition(char *yytext, int yyleng)
 {

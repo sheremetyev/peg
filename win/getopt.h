@@ -82,21 +82,21 @@
  *
  *****************************************************************************/
 
-#ifndef H_PGETOPT
-#define H_PGETOPT 1
+#ifndef H_GETOPT
+#define H_GETOPT 1
 
-extern char * poptarg;  /* carries the optional argument when a command line
+extern char * optarg;  /* carries the optional argument when a command line
                          * arg is specified with a ':' after it in the optstring
                          * and is usually handled by the caller in a switch()
                          * block. */
-extern int    poptind;	/* The caller should not need to adjust this normally */
-extern int    popterr;  /* The pgetopt() function returns a question mark (?) 
+extern int    optind;	/* The caller should not need to adjust this normally */
+extern int    opterr;  /* The getopt() function returns a question mark (?) 
                          * when it encounters an option character not included in 
 								 * optstring.  This error message can be disabled by 
-                         * setting popterr to zero.  Otherwise, it returns the 
+                         * setting opterr to zero.  Otherwise, it returns the 
                          * option character that was detected. */
 
-int pgetopt(int argc, char *argv[], char *optstring);
+int getopt(int argc, char *argv[], char *optstring);
 
 /* Example code by PlexFX to demonstrate calling of and parsing optional extra
  * args.  This is a sample code fragment, untested, minimal or non-existent 
@@ -108,16 +108,16 @@ int pgetopt(int argc, char *argv[], char *optstring);
 /* Note the ':' shown below in the pattern string, to specify additional arg */
 char opt_pattern[] = "s:V?";
 
-while ((c = pgetopt(argc, argv, opt_pattern)) != -1) 
+while ((c = getopt(argc, argv, opt_pattern)) != -1) 
 {
 	switch(c) 
 	{
       case 's':      /* specify a /s option with a numeric size parameter 
-							 * which is provided in poptarg, a char *
+							 * which is provided in optarg, a char *
 		                * Example: $ someprogram /s 100
 		                */
 			
-			some_size = atoi(poptarg);   /* should use strtol() in new code */
+			some_size = atoi(optarg);   /* should use strtol() in new code */
          break;
 		case 'V':		/* specify a /V version option, with no parameter */
 			puts("someprogram: Version 1.0");

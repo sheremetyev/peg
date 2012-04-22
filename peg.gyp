@@ -20,6 +20,26 @@
         }],
       ],
     },
+    {
+      'target_name': 'leg',
+      'type': 'executable',
+      'msvs_guid': '5ECEC9E5-8F23-47B6-93E0-C3B328B3BE66',
+      'sources': [
+        'leg.c',
+        'tree.c',
+        'compile.c',
+      ],
+      'conditions': [
+        ['OS=="win"', {
+          'include_dirs': [
+            'win',
+          ],
+          'sources': [
+            'win/getopt.c',
+          ],
+        }],
+      ],
+    },
   ],
 
   # define default project settings

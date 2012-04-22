@@ -42,6 +42,21 @@
     },
   ],
 
+  'target_defaults': {
+    'configurations': {
+      'Debug': {
+        'defines': [
+          'DEBUG',
+        ],
+      },
+      'Release': {
+        'defines': [
+          'NDEBUG',
+        ],
+      },
+    },
+  },
+
   # define default project settings
   'conditions': [
     ['OS=="win"', {

@@ -14,6 +14,9 @@
           'include_dirs': [
             'win',
           ],
+          'sources': [
+            'win/getopt.c',
+          ],
         }],
       ],
     },

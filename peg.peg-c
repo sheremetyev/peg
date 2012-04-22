@@ -319,18 +319,21 @@ YY_ACTION(void) yy_2_Sequence(char *yytext, int yyleng)
 }
 YY_ACTION(void) yy_1_Sequence(char *yytext, int yyleng)
 {
+  Node *f;
   yyprintf((stderr, "do yy_1_Sequence\n"));
-   Node *f= pop();  push(Sequence_append(pop(), f)); ;
+  f= pop();  push(Sequence_append(pop(), f)); ;
 }
 YY_ACTION(void) yy_1_Expression(char *yytext, int yyleng)
 {
+  Node *f;
   yyprintf((stderr, "do yy_1_Expression\n"));
-   Node *f= pop();  push(Alternate_append(pop(), f)); ;
+  f= pop();  push(Alternate_append(pop(), f)); ;
 }
 YY_ACTION(void) yy_2_Definition(char *yytext, int yyleng)
 {
+  Node *e;
   yyprintf((stderr, "do yy_2_Definition\n"));
-   Node *e= pop();  Rule_setExpression(pop(), e); ;
+  e= pop();  Rule_setExpression(pop(), e); ;
 }
 YY_ACTION(void) yy_1_Definition(char *yytext, int yyleng)
 {

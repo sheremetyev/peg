@@ -9,6 +9,13 @@
         'tree.c',
         'compile.c',
       ],
+      'conditions': [
+        ['OS=="win"', {
+          'include_dirs': [
+            'win',
+          ],
+        }],
+      ],
     },
   ],
 

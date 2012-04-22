@@ -2,3 +2,5 @@ ipch/
 *.opensdf
 *.suo
 *.sdf
+Debug/
+Release/

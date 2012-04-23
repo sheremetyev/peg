@@ -6,3 +6,4 @@ Debug/
 Release/
 *.xcworkspace/
 xcuserdata/
+*.user
